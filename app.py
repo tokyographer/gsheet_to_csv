@@ -26,7 +26,18 @@ st.title("Google Sheets to CSV Converter")
 # Input for Google Sheets URLs
 sheet_urls = st.text_area("Enter the Google Sheet URLs (one per line):")
 
+# Initialize session state for stopping the process
+if "stop_process" not in st.session_state:
+    st.session_state.stop_process = False
+
+def stop_processing():
+    st.session_state.stop_process = True
+
+# Stop button
+st.button("Stop Processing", on_click=stop_processing)
+
 if st.button("Convert to CSV"):
+    st.session_state.stop_process = False
     st.info("Starting the conversion process...")
     progress_bar = st.progress(0)
     urls = sheet_urls.strip().split("\n")
@@ -56,6 +67,10 @@ if st.button("Convert to CSV"):
         url = url.strip()
         if not url:
             continue
+        if st.session_state.stop_process:
+            st.warning("Processing stopped.")
+            logging.info("Processing stopped by user.")
+            break
         try:
             df, sheet_title = fetch_sheet_data(url)
             csv_file = os.path.join(csv_dir, f"{sheet_title}.csv")
@@ -75,26 +90,27 @@ if st.button("Convert to CSV"):
             progress_bar.progress((i + 1) / len(urls))
 
     # Creating a Zip file
-    try:
-        with ZipFile('all_csv_files.zip', 'w') as zipf:
-            for root, dirs, files in os.walk(csv_dir):
-                for file in files:
-                    zipf.write(os.path.join(root, file))
-        logging.info("Successfully created zip archive all_csv_files.zip.")
-    except Exception as e:
-        st.error(f"Error creating zip file: {e}")
-        logging.error(f"Error creating zip file: {e}")
+    if not st.session_state.stop_process:
+        try:
+            with ZipFile('all_csv_files.zip', 'w') as zipf:
+                for root, dirs, files in os.walk(csv_dir):
+                    for file in files:
+                        zipf.write(os.path.join(root, file))
+            logging.info("Successfully created zip archive all_csv_files.zip.")
+        except Exception as e:
+            st.error(f"Error creating zip file: {e}")
+            logging.error(f"Error creating zip file: {e}")
 
-    # Provide download button
-    try:
-        with open("all_csv_files.zip", "rb") as f:
-            st.download_button("Download All CSVs", f, "all_csv_files.zip")
-    except FileNotFoundError:
-        st.error("The zip file was not found.")
-        logging.error("The zip file all_csv_files.zip was not found.")
-    except Exception as e:
-        st.error(f"Error offering zip file download: {e}")
-        logging.error(f"Error offering zip file download: {e}")
+        # Provide download button
+        try:
+            with open("all_csv_files.zip", "rb") as f:
+                st.download_button("Download All CSVs", f, "all_csv_files.zip")
+        except FileNotFoundError:
+            st.error("The zip file was not found.")
+            logging.error("The zip file all_csv_files.zip was not found.")
+        except Exception as e:
+            st.error(f"Error offering zip file download: {e}")
+            logging.error(f"Error offering zip file download: {e}")
 
     # Clean up the CSV files and directory
     try:
