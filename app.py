@@ -6,9 +6,12 @@ from zipfile import ZipFile
 import os
 import logging
 import time
+from datetime import datetime
 
-# Set up logging
-logging.basicConfig(filename='app.log', level=logging.INFO,
+# Set up a unique log file for each session
+current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
+log_filename = f"app_{current_time}.log"
+logging.basicConfig(filename=log_filename, level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Google Sheets API setup
