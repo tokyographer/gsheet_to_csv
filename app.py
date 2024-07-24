@@ -5,6 +5,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 from zipfile import ZipFile
 import os
 import logging
+import time
 
 # Set up logging
 logging.basicConfig(filename='app.log', level=logging.INFO,
@@ -36,19 +37,31 @@ if st.button("Convert to CSV"):
         os.makedirs(csv_dir)
         logging.info(f"Created directory {csv_dir} for storing CSV files.")
 
+    def fetch_sheet_data(url, retries=3, delay=5):
+        """Fetch sheet data with retry logic."""
+        for attempt in range(retries):
+            try:
+                sheet = client.open_by_url(url)
+                worksheet = sheet.get_worksheet(0)
+                data = worksheet.get_all_records()
+                return pd.DataFrame(data), sheet.title
+            except gspread.exceptions.APIError as e:
+                logging.error(f"API error on attempt {attempt + 1}: {e}")
+                if attempt < retries - 1:
+                    time.sleep(delay * (attempt + 1))
+                else:
+                    raise
+
     for i, url in enumerate(urls):
         url = url.strip()
         if not url:
             continue
         try:
-            sheet = client.open_by_url(url)
-            worksheet = sheet.get_worksheet(0)
-            data = worksheet.get_all_records()
-            df = pd.DataFrame(data)
-            csv_file = os.path.join(csv_dir, f"{sheet.title}.csv")
+            df, sheet_title = fetch_sheet_data(url)
+            csv_file = os.path.join(csv_dir, f"{sheet_title}.csv")
             df.to_csv(csv_file, index=False)
-            st.write(f"Converted: {sheet.title}")
-            logging.info(f"Successfully converted {sheet.title} to CSV.")
+            st.write(f"Converted: {sheet_title}")
+            logging.info(f"Successfully converted {sheet_title} to CSV.")
         except gspread.exceptions.SpreadsheetNotFound:
             st.error(f"Spreadsheet not found: {url}")
             logging.error(f"Spreadsheet not found for URL: {url}")
