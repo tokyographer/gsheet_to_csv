@@ -52,19 +52,28 @@ if st.button("Convert to CSV"):
         logging.info(f"Created directory {csv_dir} for storing CSV files.")
 
     def fetch_sheet_data(url, retries=3, delay=5):
-        """Fetch sheet data with retry logic."""
+        """Fetch sheet data with retry logic and log authentication status."""
         for attempt in range(retries):
             try:
                 sheet = client.open_by_url(url)
                 worksheet = sheet.get_worksheet(0)
                 data = worksheet.get_all_records()
+                logging.info(f"Successfully authenticated and fetched data from: {sheet.title}")
                 return pd.DataFrame(data), sheet.title
             except gspread.exceptions.APIError as e:
-                logging.error(f"API error on attempt {attempt + 1}: {e}")
+                logging.error(f"API error on attempt {attempt + 1} for URL {url}: {e}")
+                if '403' in str(e):
+                    logging.error(f"Authentication failed for URL {url}. Check permissions.")
                 if attempt < retries - 1:
                     time.sleep(delay * (attempt + 1))
                 else:
                     raise
+            except gspread.exceptions.SpreadsheetNotFound:
+                logging.error(f"Spreadsheet not found for URL: {url}")
+                raise
+            except Exception as e:
+                logging.error(f"Error accessing sheet at URL {url}: {e}")
+                raise
 
     for i, url in enumerate(urls):
         url = url.strip()
