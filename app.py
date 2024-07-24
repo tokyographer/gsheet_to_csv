@@ -80,9 +80,9 @@ if st.button("Convert to CSV"):
             df.to_csv(csv_file, index=False)
             st.write(f"Converted: {sheet_title}")
             logging.info(f"Successfully converted {sheet_title} to CSV.")
-        except gspread.exceptions.SpreadsheetNotFound:
+        except gspread.exceptions.SpreadsheetNotFound as e:
             st.error(f"Spreadsheet not found: {url}")
-            logging.error(f"Spreadsheet not found for URL: {url}")
+            logging.error(f"Spreadsheet not found for URL {url}: {e}")
         except gspread.exceptions.APIError as e:
             st.error(f"API error while accessing {url}: {e}")
             logging.error(f"API error for URL {url}: {e}")

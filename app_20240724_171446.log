@@ -1,0 +1,18 @@
+2024-07-24 17:14:46,409 - INFO - Successfully authenticated with Google Sheets API.
+2024-07-24 17:15:02,386 - INFO - Successfully authenticated with Google Sheets API.
+2024-07-24 17:15:02,499 - INFO - Successfully authenticated with Google Sheets API.
+2024-07-24 17:15:04,176 - ERROR - Error processing https://docs.google.com/spreadsheets/d/1YiEmk4JLOm2B0P4SOWhKIvZvprN4QkEDNWS4qgW9WEY/edit#gid=396918893: 
+2024-07-24 17:15:05,090 - ERROR - Error processing https://docs.google.com/spreadsheets/d/1_u3P87RaEsof-LMhMnf9Nl8H44vDQPNo2biM2sFDLpQ/edit#gid=396918893: 
+2024-07-24 17:15:06,017 - ERROR - Error processing https://docs.google.com/spreadsheets/d/10LyPvWdqT_CECQ_iIPB1-wx-JuUb_lBIlmxkJM_sj8o/edit#gid=396918893: 
+2024-07-24 17:15:06,848 - ERROR - Error processing https://docs.google.com/spreadsheets/d/10qb-7fQXrqMJbkCXBBBobmoGmXkUZFpSSHdUyUIiKxc/edit#gid=396918893: 
+2024-07-24 17:15:07,860 - ERROR - Error processing https://docs.google.com/spreadsheets/d/11K1j3_deHDqZknbH6oOl_iYiv8khF4kjuCw6AbqdOYc/edit#gid=396918893: 
+2024-07-24 17:15:08,775 - ERROR - Error processing https://docs.google.com/spreadsheets/d/14i4oMAyyOoEs8R9WfT7wnPCgt9-Bp5a_zUEHYLE07Wo/edit#gid=396918893: 
+2024-07-24 17:15:09,703 - ERROR - Error processing https://docs.google.com/spreadsheets/d/183roqWMX0kQKtrdCfChwIF-IsSLFIBfWBN_cG9WIQMk/edit#gid=396918893: 
+2024-07-24 17:15:10,630 - ERROR - Error processing https://docs.google.com/spreadsheets/d/19HmNvjfc_PJpiFSoNeKn60CaqTcX-OM_i8NkwtT98cw/edit#gid=396918893: 
+2024-07-24 17:15:11,434 - ERROR - Error processing https://docs.google.com/spreadsheets/d/1b7lsTXUrfaTFGvWgzjKiRKvIAt5zno8MquHUxSE7M9I/edit#gid=396918893: 
+2024-07-24 17:15:11,767 - ERROR - Error processing https://docs.google.com/spreadsheets/d/1DiKNF-P7fZQJcXLi3p3Syqn3B21H8Iytd0S5oZsF3O8/edit#gid=396918893: 
+2024-07-24 17:15:12,578 - ERROR - Error processing https://docs.google.com/spreadsheets/d/1F5ziGbb81J_RFxEmNODeEwUzIMhKqgMptuOI1_OU9ss/edit#gid=396918893: 
+2024-07-24 17:15:13,368 - ERROR - Error processing https://docs.google.com/spreadsheets/d/1I35jeHkEZCTY9-XeCts9Zkd4Fqv8F0mFqNSYu-tWo8k/edit#gid=396918893: 
+2024-07-24 17:15:14,149 - ERROR - Error processing https://docs.google.com/spreadsheets/d/1M4v-Co9FSTqJotYWSiuul_BGWEmmc2y4r7vDr6BEvwM/edit#gid=396918893: 
+2024-07-24 17:15:15,012 - ERROR - Error processing https://docs.google.com/spreadsheets/d/1nnMfst-h69BfHPm4E8eFd_fdMQY9OzoZ0ICxSZ61eno/edit#gid=396918893: 
+2024-07-24 17:15:15,145 - INFO - Successfully authenticated with Google Sheets API.
