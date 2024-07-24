@@ -17,7 +17,7 @@ logging.basicConfig(filename=log_filename, level=logging.INFO,
 # Google Sheets API setup
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 try:
-    creds = ServiceAccountCredentials.from_json_keyfile_name('path/to/credentials.json', scope)
+    creds = ServiceAccountCredentials.from_json_keyfile_name('credentials.json', scope)
     client = gspread.authorize(creds)
     logging.info("Successfully authenticated with Google Sheets API.")
 except Exception as e:
@@ -39,6 +39,19 @@ def stop_processing():
 # Stop button
 st.button("Stop Processing", on_click=stop_processing)
 
+def make_unique_headers(headers):
+    """Make headers unique by appending an index to duplicates."""
+    seen = {}
+    result = []
+    for h in headers:
+        if h in seen:
+            seen[h] += 1
+            result.append(f"{h}_{seen[h]}")
+        else:
+            seen[h] = 0
+            result.append(h)
+    return result
+
 if st.button("Convert to CSV"):
     st.session_state.stop_process = False
     st.info("Starting the conversion process...")
@@ -58,10 +71,11 @@ if st.button("Convert to CSV"):
                 sheet = client.open_by_url(url)
                 worksheet = sheet.get_worksheet(0)
                 
-                # Custom headers to avoid issues with duplicate headers
-                custom_headers = ["Header1", "Header2", "Header3"]  # Customize this list as needed
-
-                data = worksheet.get_all_records(expected_headers=custom_headers)
+                # Fetch the headers and make them unique if necessary
+                headers = worksheet.row_values(1)
+                unique_headers = make_unique_headers(headers)
+                data = worksheet.get_all_records(expected_headers=unique_headers)
+                
                 logging.info(f"Successfully authenticated and fetched data from: {sheet.title}")
                 return pd.DataFrame(data), sheet.title
             except gspread.exceptions.APIError as e:

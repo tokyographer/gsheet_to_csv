@@ -1,0 +1,11 @@
+2024-07-24 17:35:19,967 - ERROR - Failed to authenticate with Google Sheets API: [Errno 2] No such file or directory: 'path/to/credentials.json'
+2024-07-24 17:35:23,606 - ERROR - Failed to authenticate with Google Sheets API: [Errno 2] No such file or directory: 'path/to/credentials.json'
+2024-07-24 17:35:24,498 - ERROR - Failed to authenticate with Google Sheets API: [Errno 2] No such file or directory: 'path/to/credentials.json'
+2024-07-24 17:35:59,019 - INFO - Successfully authenticated with Google Sheets API.
+2024-07-24 17:36:09,907 - INFO - Successfully authenticated with Google Sheets API.
+2024-07-24 17:36:10,030 - INFO - Successfully authenticated with Google Sheets API.
+2024-07-24 17:36:10,049 - INFO - Created directory csv_files for storing CSV files.
+2024-07-24 17:36:15,724 - ERROR - Error accessing sheet at URL https://docs.google.com/spreadsheets/d/16zXZV1dqge81Av3jX-n58gtXcchZq3D9ihl7pBbZ-30/edit?gid=396918893#gid=396918893: the given 'expected_headers' contains unknown headers: {'Header1', 'Header3', 'Header2'}
+2024-07-24 17:36:15,726 - ERROR - Error processing https://docs.google.com/spreadsheets/d/16zXZV1dqge81Av3jX-n58gtXcchZq3D9ihl7pBbZ-30/edit?gid=396918893#gid=396918893: the given 'expected_headers' contains unknown headers: {'Header1', 'Header3', 'Header2'}
+2024-07-24 17:36:15,729 - INFO - Successfully created zip archive all_csv_files.zip.
+2024-07-24 17:36:15,732 - INFO - Cleaned up directory csv_files.
