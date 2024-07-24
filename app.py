@@ -1,12 +1,12 @@
 import streamlit as st
-import pandas as pd
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-from zipfile import ZipFile
-import os
-import logging
-import time
+import pandas as pd
 from datetime import datetime
+import logging
+import os
+from zipfile import ZipFile
+import time
 
 # Set up a unique log file for each session
 current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -17,7 +17,7 @@ logging.basicConfig(filename=log_filename, level=logging.INFO,
 # Google Sheets API setup
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 try:
-    creds = ServiceAccountCredentials.from_json_keyfile_name('credentials.json', scope)
+    creds = ServiceAccountCredentials.from_json_keyfile_name('path/to/credentials.json', scope)
     client = gspread.authorize(creds)
     logging.info("Successfully authenticated with Google Sheets API.")
 except Exception as e:
@@ -57,7 +57,11 @@ if st.button("Convert to CSV"):
             try:
                 sheet = client.open_by_url(url)
                 worksheet = sheet.get_worksheet(0)
-                data = worksheet.get_all_records()
+                
+                # Custom headers to avoid issues with duplicate headers
+                custom_headers = ["Header1", "Header2", "Header3"]  # Customize this list as needed
+
+                data = worksheet.get_all_records(expected_headers=custom_headers)
                 logging.info(f"Successfully authenticated and fetched data from: {sheet.title}")
                 return pd.DataFrame(data), sheet.title
             except gspread.exceptions.APIError as e:

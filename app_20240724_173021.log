@@ -1,0 +1,29 @@
+2024-07-24 17:30:21,762 - INFO - Successfully authenticated with Google Sheets API.
+2024-07-24 17:30:21,762 - INFO - Successfully authenticated with Google Sheets API.
+2024-07-24 17:30:21,872 - INFO - Successfully authenticated with Google Sheets API.
+2024-07-24 17:30:37,900 - INFO - Successfully authenticated with Google Sheets API.
+2024-07-24 17:30:38,000 - INFO - Successfully authenticated with Google Sheets API.
+2024-07-24 17:30:38,961 - ERROR - Error accessing sheet at URL https://docs.google.com/spreadsheets/d/1YiEmk4JLOm2B0P4SOWhKIvZvprN4QkEDNWS4qgW9WEY/edit#gid=396918893: 
+2024-07-24 17:30:38,962 - ERROR - Error processing https://docs.google.com/spreadsheets/d/1YiEmk4JLOm2B0P4SOWhKIvZvprN4QkEDNWS4qgW9WEY/edit#gid=396918893: 
+2024-07-24 17:30:39,889 - ERROR - Error accessing sheet at URL https://docs.google.com/spreadsheets/d/1_u3P87RaEsof-LMhMnf9Nl8H44vDQPNo2biM2sFDLpQ/edit#gid=396918893: 
+2024-07-24 17:30:39,890 - ERROR - Error processing https://docs.google.com/spreadsheets/d/1_u3P87RaEsof-LMhMnf9Nl8H44vDQPNo2biM2sFDLpQ/edit#gid=396918893: 
+2024-07-24 17:30:40,801 - ERROR - Error accessing sheet at URL https://docs.google.com/spreadsheets/d/10LyPvWdqT_CECQ_iIPB1-wx-JuUb_lBIlmxkJM_sj8o/edit#gid=396918893: 
+2024-07-24 17:30:40,803 - ERROR - Error processing https://docs.google.com/spreadsheets/d/10LyPvWdqT_CECQ_iIPB1-wx-JuUb_lBIlmxkJM_sj8o/edit#gid=396918893: 
+2024-07-24 17:30:41,518 - ERROR - Error accessing sheet at URL https://docs.google.com/spreadsheets/d/10qb-7fQXrqMJbkCXBBBobmoGmXkUZFpSSHdUyUIiKxc/edit#gid=396918893: 
+2024-07-24 17:30:41,519 - ERROR - Error processing https://docs.google.com/spreadsheets/d/10qb-7fQXrqMJbkCXBBBobmoGmXkUZFpSSHdUyUIiKxc/edit#gid=396918893: 
+2024-07-24 17:30:42,449 - ERROR - Error accessing sheet at URL https://docs.google.com/spreadsheets/d/11K1j3_deHDqZknbH6oOl_iYiv8khF4kjuCw6AbqdOYc/edit#gid=396918893: 
+2024-07-24 17:30:42,451 - ERROR - Error processing https://docs.google.com/spreadsheets/d/11K1j3_deHDqZknbH6oOl_iYiv8khF4kjuCw6AbqdOYc/edit#gid=396918893: 
+2024-07-24 17:30:43,464 - ERROR - Error accessing sheet at URL https://docs.google.com/spreadsheets/d/14i4oMAyyOoEs8R9WfT7wnPCgt9-Bp5a_zUEHYLE07Wo/edit#gid=396918893: 
+2024-07-24 17:30:43,465 - ERROR - Error processing https://docs.google.com/spreadsheets/d/14i4oMAyyOoEs8R9WfT7wnPCgt9-Bp5a_zUEHYLE07Wo/edit#gid=396918893: 
+2024-07-24 17:30:44,335 - ERROR - Error accessing sheet at URL https://docs.google.com/spreadsheets/d/183roqWMX0kQKtrdCfChwIF-IsSLFIBfWBN_cG9WIQMk/edit#gid=396918893: 
+2024-07-24 17:30:44,336 - ERROR - Error processing https://docs.google.com/spreadsheets/d/183roqWMX0kQKtrdCfChwIF-IsSLFIBfWBN_cG9WIQMk/edit#gid=396918893: 
+2024-07-24 17:30:45,282 - ERROR - Error accessing sheet at URL https://docs.google.com/spreadsheets/d/19HmNvjfc_PJpiFSoNeKn60CaqTcX-OM_i8NkwtT98cw/edit#gid=396918893: 
+2024-07-24 17:30:45,282 - ERROR - Error processing https://docs.google.com/spreadsheets/d/19HmNvjfc_PJpiFSoNeKn60CaqTcX-OM_i8NkwtT98cw/edit#gid=396918893: 
+2024-07-24 17:30:46,190 - INFO - Successfully authenticated with Google Sheets API.
+2024-07-24 17:30:46,236 - ERROR - Error accessing sheet at URL https://docs.google.com/spreadsheets/d/1b7lsTXUrfaTFGvWgzjKiRKvIAt5zno8MquHUxSE7M9I/edit#gid=396918893: 
+2024-07-24 17:32:18,781 - INFO - Successfully authenticated with Google Sheets API.
+2024-07-24 17:32:18,881 - INFO - Successfully authenticated with Google Sheets API.
+2024-07-24 17:32:23,883 - ERROR - Error accessing sheet at URL https://docs.google.com/spreadsheets/d/16zXZV1dqge81Av3jX-n58gtXcchZq3D9ihl7pBbZ-30/edit?gid=396918893#gid=396918893: the header row in the worksheet is not unique, try passing 'expected_headers' to get_all_records
+2024-07-24 17:32:23,884 - ERROR - Error processing https://docs.google.com/spreadsheets/d/16zXZV1dqge81Av3jX-n58gtXcchZq3D9ihl7pBbZ-30/edit?gid=396918893#gid=396918893: the header row in the worksheet is not unique, try passing 'expected_headers' to get_all_records
+2024-07-24 17:32:23,886 - INFO - Successfully created zip archive all_csv_files.zip.
+2024-07-24 17:32:23,889 - INFO - Cleaned up directory csv_files.
